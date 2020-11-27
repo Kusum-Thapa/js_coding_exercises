@@ -16,12 +16,20 @@ function getBusNumbers(people) {
   
   if(people <= 40) return 1;
   else return Math.ceil(people / 40);
-  
+
 }
 
 function countSheep(arr) {
   if (arr === undefined) throw new Error("arr is required");
-  // Your code here!
+  
+  var sheepCount = 0;
+  
+  for(i = 0; i <= arr.length; i++)
+  {
+    if(arr[i]  == "sheep") sheepCount++;
+  }
+
+  return sheepCount;  
 }
 
 function hasMPostCode(person) {
