@@ -50,14 +50,25 @@ function checkIngredients(menu, ingredient) {
       break;
     }
   }
-  
+
   return containsIngredients;
 }
 
 function duplicateNumbers(arr1, arr2) {
   if (arr1 === undefined) throw new Error("arr1 is required");
   if (arr2 === undefined) throw new Error("arr2 is required");
-  // Your code here!
+  
+  var duplicateNumArray = new Array( );
+  for(i = 0; i < arr1.length; i++)
+  {
+    for(j= 0; j< arr2.length; j++)
+    {
+      if(arr1[i] == arr2[j] && !duplicateNumArray.includes(arr1[1]) && !duplicateNumArray.includes(arr1[2])) 
+        duplicateNumArray.push(arr1[i]);
+    }
+  }
+
+  return duplicateNumArray.sort(function(a, b){return a-b});;
 }
 
 module.exports = {
