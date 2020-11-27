@@ -88,13 +88,23 @@ function countLinuxUsers(users) {
   {
      if(users[i].type.toUpperCase() =="LINUX") linuxUsersCount++;    
   }
-  
+
   return linuxUsersCount;
 }
 
 function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required");
-  // Add your code here!
+  
+  var totalScore = 0;
+
+  for(i = 0; i< scores.length; i++)
+  {
+      totalScore += scores[i];
+  }
+  var meanScore = totalScore / scores.length;
+
+  if(meanScore % 1 == 0 ) return parseInt(meanScore);
+  else  return  parseFloat(Number(meanScore).toFixed(2));
 }
 
 function simpleFizzBuzz(n) {
