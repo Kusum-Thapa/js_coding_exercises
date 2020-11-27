@@ -12,7 +12,17 @@ function getSquares(nums) {
 
 function camelCaseWords(words) {
   if (words === undefined) throw new Error("words is required");
-  // Your code here!
+  
+  if (words.length == 1) return words.toString();
+
+  var camelCaseWords = words.map(getCamelCaseWords);
+
+  function getCamelCaseWords(value,index){
+    if (index == 0) return value;
+    return value.substring(0,1).toUpperCase() + value.substring(1,value.length);
+  }
+
+  return camelCaseWords.join("");
 }
 
 function getTotalSubjects(people) {
