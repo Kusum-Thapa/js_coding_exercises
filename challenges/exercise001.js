@@ -34,7 +34,22 @@ function getSalePrice(originalPrice, reduction) {
 
 function getMiddleCharacter(str) {
   if (str === undefined) throw new Error("str is required");
-  // Add your code here!
+  
+  var letterCount = str.length;
+  var midPosition; 
+  var noOfLetter;
+
+  if(letterCount % 2 ==0) {
+    midPosition = letterCount / 2 - 1;
+    noOfLetter = 2;
+  }
+  else{
+    midPosition = letterCount / 2;
+    noOfLetter = 1
+  }
+   
+  return str.substring(midPosition, midPosition +noOfLetter);
+  
 }
 
 function reverseWord(word) {
