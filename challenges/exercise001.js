@@ -65,7 +65,18 @@ function reverseWord(word) {
 
 function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
-  // Add your code here!
+
+  var reverseWordArray = words.map(reverseWordFunction);
+
+  function reverseWordFunction(value, index, array){  
+      
+    var splitWords = value.split("");
+    
+    return splitWords.reverse().join("");
+    
+  }    
+
+  return( reverseWordArray);
 }
 
 function countLinuxUsers(users) {
