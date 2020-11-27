@@ -1,6 +1,13 @@
 function getSquares(nums) {
   if (nums === undefined) throw new Error("nums is required");
-  // Your code here!
+  
+  var squaresArray = nums.map(getSquaresFunction);
+
+  function getSquaresFunction(value, index, array){  
+    return Math.pow(value,2);
+  }
+
+  return squaresArray;      
 }
 
 function camelCaseWords(words) {
