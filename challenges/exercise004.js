@@ -26,13 +26,23 @@ function findVerbs(words) {
 }
 
 function getIntegers(nums) {
-  if (!nums) throw new Error("nums is required");
-  // Your code here
+  if (!nums) throw new Error("nums is required")
+  
+  return nums.filter(n => {
+    return Number.isInteger(n);
+  });
 }
 
 function getCities(users) {
   if (!users) throw new Error("users is required");
-  // Your code here
+   var citiesArr = new Array();
+  
+   for(i =0; i < users.length; i++)
+  {
+    citiesArr.push((users[i].data.city.displayName));
+  }
+
+  return citiesArr;
 }
 
 function getSquareRoots(nums) {
