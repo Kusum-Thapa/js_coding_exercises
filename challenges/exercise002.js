@@ -8,12 +8,15 @@ function isFromManchester(person) {
   if (person === undefined) throw new Error("person is required");
   
   return person.city.toUpperCase() == "MANCHESTER";
-  
+
 }
 
 function getBusNumbers(people) {
   if (people === undefined) throw new Error("people is required");
-  // Your code here!
+  
+  if(people <= 40) return 1;
+  else return Math.ceil(people / 40);
+  
 }
 
 function countSheep(arr) {
