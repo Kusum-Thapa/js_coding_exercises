@@ -40,7 +40,18 @@ function getTotalSubjects(people) {
 function checkIngredients(menu, ingredient) {
   if (menu === undefined) throw new Error("menu is required");
   if (!ingredient) throw new Error("ingredient is required");
-  // Your code here!
+  
+   var containsIngredients = false;
+
+  for (i = 0; i < menu.length; i++){
+    if(menu[i].ingredients.indexOf(ingredient) > -1) 
+    {
+      containsIngredients = true;
+      break;
+    }
+  }
+  
+  return containsIngredients;
 }
 
 function duplicateNumbers(arr1, arr2) {
