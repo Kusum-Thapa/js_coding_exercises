@@ -6,7 +6,9 @@ function getFillings(sandwich) {
 
 function isFromManchester(person) {
   if (person === undefined) throw new Error("person is required");
-  // Your code here!
+  
+  return person.city.toUpperCase() == "MANCHESTER";
+  
 }
 
 function getBusNumbers(people) {
