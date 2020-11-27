@@ -17,8 +17,7 @@ function addVAT(originalPrice, vatRate) {
   if (vatRate === undefined) throw new Error("vatRate is required");
 
         var vatPrice = originalPrice + (vatRate * 0.01 * originalPrice) ;
-       console.log( Number(vatPrice).toFixed(2))
-
+       
         if(vatPrice % 1 == 0 ) return parseInt(vatPrice);
         else  return  parseFloat(Number(vatPrice).toFixed(2));
 }
@@ -26,7 +25,11 @@ function addVAT(originalPrice, vatRate) {
 function getSalePrice(originalPrice, reduction) {
   if (originalPrice === undefined) throw new Error("originalPrice is required");
   if (reduction === undefined) throw new Error("reduction is required");
-  // Add your code here!
+  
+    var salePrice = originalPrice - (reduction * 0.01 * originalPrice);
+
+    if(salePrice % 1 == 0) return parseInt(salePrice);
+    else return parseFloat(Number(salePrice).toFixed(2));
 }
 
 function getMiddleCharacter(str) {
