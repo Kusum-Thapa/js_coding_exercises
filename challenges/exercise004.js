@@ -47,7 +47,11 @@ function getCities(users) {
 
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
+ 
+  return nums.map( n => {
+    var sqrtVal = Math.sqrt(n);
+    return ((sqrtVal % 1 == 0) ? sqrtVal : parseFloat(Number(Math.sqrt(n)).toFixed(2)));
+  });
 }
 
 function findSentencesContaining(sentences, str) {
