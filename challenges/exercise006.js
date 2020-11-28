@@ -86,6 +86,26 @@ const createMatrix = (n, fill) => {
 const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
+  
+  var totalStaff = staff.length;
+  var staffWorking = 0;
+  if( totalStaff < 3) return false;
+  else{
+    for(var i = 0; i < totalStaff; i++)
+    {
+      var workingDays = staff[i].rota;
+       for(var j = 0; j < workingDays.length; j++)
+       {
+          if(workingDays[j].toLowerCase() == day.toLowerCase()) 
+          {  
+            staffWorking++;
+            break;
+          }
+       } 
+    }
+    if(staffWorking >= 3) return true;
+    else return false;
+  }
 };
 
 module.exports = {

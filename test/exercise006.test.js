@@ -56,7 +56,48 @@ describe("createMatrix", () =>{
                                                 ["bar", "bar", "bar", "bar"]
                                             ]);    
     });
-
-
-
 });
+
+describe("areWeCovered", () => {
+    test("returns false if the number of staff is 2 for any given day", () => {
+      const staff = [
+        { name: "Sally", rota: ["Monday", "Tuesday", "Friday"] },
+        { name: "Pedro", rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"] }
+        ];
+        expect(areWeCovered(staff,"Monday")).toBe(false);
+    });
+
+    test("returns false if the number of staff less than 3 for any given day", () => {
+        const staff1 = [
+          { name: "Sally", rota: ["Monday", "Tuesday", "Friday"] },
+          { name: "Pedro", rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"] },
+          { name: "Kayam", rota: ["Saturday", "Sunday", "Monday", "Wednesday"] }
+
+          ];
+          expect(areWeCovered(staff1,"Monday")).toBe(false);
+      });
+
+      test("returns true if the number of staff is 3 for any given day", () => {
+        const staff1 = [
+          { name: "Sally", rota: ["Monday", "Tuesday", "Wednesday"] },
+          { name: "Pedro", rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"] },
+          { name: "Kayam", rota: ["Saturday", "Sunday", "Monday", "Wednesday"] }
+
+          ];
+          expect(areWeCovered(staff1,"Wednesday")).toBe(true);
+      });
+      test("returns true if the number of staff is more than 3 for any given day", () => {
+        const staff1 = [
+          { name: "Sally", rota: ["Monday", "Tuesday", "Wednesday"] },
+          { name: "Pedro", rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"] },
+          { name: "Kayam", rota: ["Saturday", "Sunday", "Monday", "Wednesday"] },
+          { name: "Paanas", rota: ["Saturday", "Sunday", "Monday", "Wednesday"] }
+
+          ];
+          expect(areWeCovered(staff1,"Wednesday")).toBe(true);
+      });
+  });
+
+
+
+
