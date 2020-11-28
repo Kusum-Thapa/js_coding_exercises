@@ -34,3 +34,29 @@ describe("isItPrime", () =>{
         expect(isItPrime(47)).toBe(true);
        });       
 });
+
+describe("createMatrix", () =>{
+    test("returns  an array of 3 arrays, each filled with 3 items.",() =>{
+        expect(createMatrix(3, "foo")).toEqual([
+                                                ["foo", "foo", "foo"],
+                                                ["foo", "foo", "foo"],
+                                                ["foo", "foo", "foo"]
+                                            ]);    
+    });
+
+    test("returns empty array when n is 0.",() =>{
+        expect(createMatrix(0, "foo")).toEqual([ ]);
+    
+    });
+    test("returns  an array of 4 arrays, each filled with 4 items.",() =>{
+        expect(createMatrix(4, "bar")).toEqual([
+                                                ["bar", "bar", "bar", "bar"],
+                                                ["bar", "bar", "bar", "bar"],
+                                                ["bar", "bar", "bar", "bar"],
+                                                ["bar", "bar", "bar", "bar"]
+                                            ]);    
+    });
+
+
+
+});
