@@ -20,3 +20,17 @@ describe("sumMultiples", () => {
        });
  });
     
+describe("isItPrime", () =>{
+    test("returns false for number 1", () => {
+        expect(isItPrime(1)).toBe(false);
+       });
+       test("returns false for number 1", () => {
+        expect(isItPrime(2)).toBe(true);
+       });
+       test("returns false for number 1", () => {
+        expect(isItPrime(25)).toBe(false);
+       });
+       test("returns false for number 1", () => {
+        expect(isItPrime(47)).toBe(true);
+       });       
+});
