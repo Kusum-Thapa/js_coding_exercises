@@ -4,6 +4,10 @@
  */
 const sumDigits = n => {
   if (n === undefined) throw new Error("n is required");
+  
+  return n.reduce((accumulator, currentVal) => {
+    return accumulator + currentVal;
+  });
 };
 
 /**
