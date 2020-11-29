@@ -128,6 +128,50 @@ const hexToRGB = hexStr => {
  */
 const findWinner = board => {
   if (board === undefined) throw new Error("board is required");
+  //loop through array 8 ways
+
+   var winner = null ;
+
+  //check row winner
+ 
+  for (var i = 0; i < 3; i++){
+   var pos = 0;
+    for (var j = 0; j < 3; j++){
+         
+     if(pos == 0){  //assign value to check from first col
+      	var valTocheck = board[i][j];
+        if(valTocheck === null) {break;} //skip to next row if the any col val is not equal to the first col value to check
+         else{ pos++;}         
+      }
+			else{
+         if( (board[i][j] === null) || ( board[i][j]  !== valTocheck) ){ pos = 0; break;}         
+          pos ++ ;
+      }       
+    }    
+
+     if(pos == 3) {winner = valTocheck; break;}     
+  }
+
+//check column winner
+for (var i = 0; i < 3; i++){
+  var pos = 0;
+   for (var j = 0; j < 3; j++){
+        
+    if(pos == 0){  //assign value to check from first pos
+       var valTocheck = board[j][i];
+       if(valTocheck === null) {break;} //skip to next col if the any row value is not equal to the first pos value to check
+        else{ pos++;}         
+     }
+     else{
+        if( (board[j][i] === null) || ( board[j][i] !== valTocheck) ){ pos = 0; break;}         
+         pos ++ ;
+     }       
+   }    
+
+    if(pos == 3) {winner = valTocheck; break;}     
+ }
+ 
+return winner;  
 };
 
 module.exports = {

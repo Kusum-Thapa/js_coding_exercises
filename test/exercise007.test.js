@@ -82,3 +82,67 @@ const {
        expect(getScreentimeAlertList(users, "2019-06-11")).toEqual([]);
     });
   });
+
+describe("checkRowWinners", () =>{
+  test("returns winner of any row of noughts and crosses board",() => { 
+    const board=
+    [      
+      ["X", "0", null],
+      ["X", "X", "X"],
+      ["0", null, "0"]      
+      ]; expect(findWinner(board)).toBe("X");
+
+      const board1=
+      [      
+        ["X", "0", null],
+        ["X", null, "X"],
+        ["0", "0", "0"]      
+        ]; expect(findWinner(board1)).toBe("0");
+
+        const board2=
+      [      
+        ["X", "X", "X"],
+        ["X",  "0", null ],
+        ["0", "0", null]      
+        ]; expect(findWinner(board2)).toBe("X");
+
+        const board3=
+        [      
+          ["X", "X", null],
+          ["X",  "0", null ],
+          ["0", "0", null]      
+          ]; expect(findWinner(board3)).toBe(null);
+  });
+});
+
+describe("checkColWinners", () =>{
+  test("returns winner of any column of noughts and crosses board",() => { 
+    const board=
+    [      
+      ["X", "0", null],
+      ["X", "X", "0"],
+      ["X", null, "0"]      
+      ]; expect(findWinner(board)).toBe("X");
+
+      const board1=
+      [      
+        ["X", "0", null],
+        ["X", "0", "X"],
+        ["0", "0", null]      
+        ]; expect(findWinner(board1)).toBe("0");
+
+        const board2=
+      [      
+        [null, "X", "X"],
+        [null, "0", "X" ],
+        ["0", "0", "X"]      
+        ]; expect(findWinner(board2)).toBe("X");
+
+        const board3=
+        [      
+          ["X", "X", null],
+          ["X",  "0", null ],
+          ["0", "0", null]      
+          ]; expect(findWinner(board3)).toBe(null);
+  });
+});
