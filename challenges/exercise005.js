@@ -14,11 +14,11 @@ const count1sand0s = str => {
   var zeroCount = 0;
   var oneCount = 0;
 
-  for(i = 0; i < str.length; i++)
-  {
+  for(var i = 0; i < str.length; i++){
     if(str[i] == 0) zeroCount++;
     else if(str[i] == 1) oneCount++;    
   }
+
   const result = {1 : oneCount, 0 : zeroCount};
   return result;
 };
@@ -33,10 +33,10 @@ const sumArrays = arrs => {
   if (arrs === undefined) throw new Error("arrs is required");
   
   var sumArray= arrs.map(x => {
-     return x.reduce((a,b) => a+b, 0)
+     return x.reduce((a,b) => a + b, 0)
   });
 
-   return sumArray.reduce((a,b) => a+b, 0);
+   return sumArray.reduce((a,b) => a + b, 0);
 };
 
 const arrShift = arr => {
@@ -61,8 +61,7 @@ const findNeedle = (haystack, searchTerm) => {
           {found =true};         
      });
      
-     return(found);; 
-
+     return(found);
 };
 
 const getWordFrequencies = str => {

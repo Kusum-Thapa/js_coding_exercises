@@ -2,7 +2,6 @@ function capitalize(word) {
   if (word === undefined) throw new Error("word is required");
  
   return word.substring(0,1).toUpperCase() + word.substring(1,word.length);
-
 }
 
 function generateInitials(firstName, lastName) {
@@ -48,8 +47,7 @@ function getMiddleCharacter(str) {
     noOfLetter = 1
   }
    
-  return str.substring(midPosition, midPosition +noOfLetter);
-  
+  return str.substring(midPosition, midPosition + noOfLetter);  
 }
 
 function reverseWord(word) {
@@ -60,7 +58,6 @@ function reverseWord(word) {
   var reverseAllWords = splitWords.reverse();
 
   return reverseAllWords.join("");
-
 }
 
 function reverseAllWords(words) {
@@ -72,8 +69,7 @@ function reverseAllWords(words) {
       
     var splitWords = value.split("");
     
-    return splitWords.reverse().join("");
-    
+    return splitWords.reverse().join("");    
   }    
 
   return( reverseWordArray);
@@ -84,8 +80,7 @@ function countLinuxUsers(users) {
    
   var linuxUsersCount = 0;
 
-  for(i= 0; i < users.length ; i++)
-  {
+  for(var i= 0; i < users.length ; i++){
      if(users[i].type.toUpperCase() =="LINUX") linuxUsersCount++;    
   }
 
@@ -97,10 +92,10 @@ function getMeanScore(scores) {
   
   var totalScore = 0;
 
-  for(i = 0; i< scores.length; i++)
-  {
+  for(var i = 0; i< scores.length; i++){
       totalScore += scores[i];
   }
+  
   var meanScore = totalScore / scores.length;
 
   if(meanScore % 1 == 0 ) return parseInt(meanScore);
@@ -113,8 +108,7 @@ function simpleFizzBuzz(n) {
   if(n % 3 == 0 && n % 5 == 0) return "fizzbuzz";
   else if(n % 3 == 0) return "fizz";
   else if(n % 5 == 0 ) return "buzz";
-  else return n;
-  
+  else return n;  
 }
 
 module.exports = {

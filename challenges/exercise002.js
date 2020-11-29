@@ -8,7 +8,6 @@ function isFromManchester(person) {
   if (person === undefined) throw new Error("person is required");
   
   return person.city.toUpperCase() == "MANCHESTER";
-
 }
 
 function getBusNumbers(people) {
@@ -24,8 +23,7 @@ function countSheep(arr) {
   
   var sheepCount = 0;
   
-  for(i = 0; i <= arr.length; i++)
-  {
+  for(var i = 0; i <= arr.length; i++){
     if(arr[i]  == "sheep") sheepCount++;
   }
 
@@ -37,7 +35,7 @@ function hasMPostCode(person) {
   
   var personPostCode = person.address.postCode;
 
-  return (personPostCode.substring(0,1) == "M" && !personPostCode.substring(1,2).match(/[a-z]/i));
+  return (personPostCode.substring(0,1) == "M" && !personPostCode.substring(1,2).match(/[A-Z]/i));
 }
 
 module.exports = {

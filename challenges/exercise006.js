@@ -6,8 +6,10 @@
  */
 const sumMultiples = arr => {
   if (arr === undefined) throw new Error("arr is required");
+
   var sum = 0;
-  arr.forEach( n =>{
+
+  arr.forEach( n => {
     if ( (n % 3 == 0) || (n % 5 == 0)) sum = sum + n;    
   });
 
@@ -44,10 +46,10 @@ const isItPrime = n => {
     else if(n === 2) return true;
     else
     {
-      for(var i = 2; i < n; i++ )
-      { 
+      for(var i = 2; i < n; i++ ){ 
         if(n % i === 0) return false;        
       }
+
        return true;
     }    
 };
@@ -68,7 +70,6 @@ const createMatrix = (n, fill) => {
   if (fill === undefined) throw new Error("fill is required");
 
   return new Array(n).fill(fill).map(() => new Array(n).fill(fill));
-
 };
 
 /**
@@ -91,13 +92,10 @@ const areWeCovered = (staff, day) => {
   var staffWorking = 0;
   if( totalStaff < 3) return false;
   else{
-    for(var i = 0; i < totalStaff; i++)
-    {
+    for(var i = 0; i < totalStaff; i++){
       var workingDays = staff[i].rota;
-       for(var j = 0; j < workingDays.length; j++)
-       {
-          if(workingDays[j].toLowerCase() == day.toLowerCase()) 
-          {  
+       for(var j = 0; j < workingDays.length; j++){
+          if(workingDays[j].toLowerCase() == day.toLowerCase()){  
             staffWorking++;
             break;
           }

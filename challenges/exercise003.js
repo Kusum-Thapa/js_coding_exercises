@@ -19,6 +19,7 @@ function camelCaseWords(words) {
 
   function getCamelCaseWords(value,index){
     if (index == 0) return value;
+
     return value.substring(0,1).toUpperCase() + value.substring(1,value.length);
   }
 
@@ -29,8 +30,7 @@ function getTotalSubjects(people) {
   if (people === undefined) throw new Error("people is required");
   
   var totalSubject = 0;
-  for(i = 0; i < people.length; i++)
-  {
+  for(var i = 0; i < people.length; i++){
      totalSubject += parseInt(people[i].subjects.length);
   }
 
@@ -43,9 +43,8 @@ function checkIngredients(menu, ingredient) {
   
    var containsIngredients = false;
 
-  for (i = 0; i < menu.length; i++){
-    if(menu[i].ingredients.indexOf(ingredient) > -1) 
-    {
+  for (var i = 0; i < menu.length; i++){
+    if(menu[i].ingredients.indexOf(ingredient) > -1){
       containsIngredients = true;
       break;
     }
@@ -59,10 +58,8 @@ function duplicateNumbers(arr1, arr2) {
   if (arr2 === undefined) throw new Error("arr2 is required");
   
   var duplicateNumArray = new Array( );
-  for(i = 0; i < arr1.length; i++)
-  {
-    for(j= 0; j< arr2.length; j++)
-    {
+  for(var i = 0; i < arr1.length; i++){
+    for(var j= 0; j< arr2.length; j++){
       if(arr1[i] == arr2[j] && !duplicateNumArray.includes(arr1[1]) && !duplicateNumArray.includes(arr1[2])) 
         duplicateNumArray.push(arr1[i]);
     }
