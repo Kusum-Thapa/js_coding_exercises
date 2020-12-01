@@ -9,8 +9,8 @@ const sumMultiples = arr => {
 
   var sum = 0;
 
-  arr.forEach( n => {
-    if ( (n % 3 == 0) || (n % 5 == 0)) sum = sum + n;    
+  arr.forEach(n => {
+    if ((n % 3 == 0) || (n % 5 == 0)) sum = sum + n;
   });
 
   return sum;
@@ -40,18 +40,17 @@ const getComplementaryDNA = str => {
  * @returns {Boolean}
  */
 const isItPrime = n => {
-    if (n === undefined) throw new Error("n is required");
+  if (n === undefined) throw new Error("n is required");
 
-    if(n <= 1 ) return false;
-    else if(n === 2) return true;
-    else
-    {
-      for(var i = 2; i < n; i++ ){ 
-        if(n % i === 0) return false;        
-      }
+  if (n <= 1) return false;
+  else if (n === 2) return true;
+  else {
+    for (let i = 2; i < n; i++) {
+      if (n % i === 0) return false;
+    }
 
-       return true;
-    }    
+    return true;
+  }
 };
 
 /**
@@ -87,21 +86,21 @@ const createMatrix = (n, fill) => {
 const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
-  
+
   var totalStaff = staff.length;
   var staffWorking = 0;
-  if( totalStaff < 3) return false;
-  else{
-    for(var i = 0; i < totalStaff; i++){
+  if (totalStaff < 3) return false;
+  else {
+    for (let i = 0; i < totalStaff; i++) {
       var workingDays = staff[i].rota;
-       for(var j = 0; j < workingDays.length; j++){
-          if(workingDays[j].toLowerCase() == day.toLowerCase()){  
-            staffWorking++;
-            break;
-          }
-       } 
+      for (let j = 0; j < workingDays.length; j++) {
+        if (workingDays[j].toLowerCase() == day.toLowerCase()) {
+          staffWorking++;
+          break;
+        }
+      }
     }
-    if(staffWorking >= 3) return true;
+    if (staffWorking >= 3) return true;
     else return false;
   }
 };

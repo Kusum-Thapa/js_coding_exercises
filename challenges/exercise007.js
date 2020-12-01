@@ -4,7 +4,7 @@
  */
 const sumDigits = n => {
   if (n === undefined) throw new Error("n is required");
-  
+
   return n.reduce((accumulator, currentVal) => {
     return accumulator + currentVal;
   });
@@ -21,20 +21,20 @@ const sumDigits = n => {
 const createRange = (start, end, step) => {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
-  if(step === undefined) {step = 1;}
-  
+  if (step === undefined) { step = 1; }
+
   var rangeArray = new Array();
 
   if (end < start) {
     step = -step;
   }
- 
+
   while (step > 0 ? end >= start : end <= start) {
     rangeArray.push(start);
     start += step;
-  } 
-  
-  return(rangeArray);
+  }
+
+  return (rangeArray);
 };
 
 /**
@@ -72,33 +72,33 @@ const getScreentimeAlertList = (users, date) => {
 
   var givenDate = new Date(date);
   var resultArray = [];
- 
+
   for (const [key, value] of Object.entries(users)) {
-           
-        var userScreenTime = (value.screenTime).filter( s => {  
 
-         var userDate = new Date(s.date);
-         
-        if( (userDate > givenDate) == false && (userDate < givenDate) == false){
+    var userScreenTime = (value.screenTime).filter(s => {
 
-             var screenTime = 0;  
-              var usageArr =s.usage;
-             Object.keys(usageArr).forEach(function(key,index) {
+      var userDate = new Date(s.date);
 
-                         screenTime = screenTime + usageArr[key];         
-             });
-               if (screenTime > 100) { 
-                 return (s.usage);                            
-               }
-            }
-   });
-  
-   if(userScreenTime.length >= 1){    
-     resultArray.push(value.username);  
-    } 
-  } 
+      if ((userDate > givenDate) == false && (userDate < givenDate) == false) {
 
- return(resultArray);
+        var screenTime = 0;
+        var usageArr = s.usage;
+        Object.keys(usageArr).forEach(function (key, index) {
+
+          screenTime = screenTime + usageArr[key];
+        });
+        if (screenTime > 100) {
+          return (s.usage);
+        }
+      }
+    });
+
+    if (userScreenTime.length >= 1) {
+      resultArray.push(value.username);
+    }
+  }
+
+  return (resultArray);
 };
 
 
@@ -130,48 +130,87 @@ const findWinner = board => {
   if (board === undefined) throw new Error("board is required");
   //loop through array 8 ways
 
-   var winner = null ;
+  var winner = null;
 
   //check row winner
- 
-  for (var i = 0; i < 3; i++){
-   var pos = 0;
-    for (var j = 0; j < 3; j++){
-         
-     if(pos == 0){  //assign value to check from first col
-      	var valTocheck = board[i][j];
-        if(valTocheck === null) {break;} //skip to next row if the any col val is not equal to the first col value to check
-         else{ pos++;}         
-      }
-			else{
-         if( (board[i][j] === null) || ( board[i][j]  !== valTocheck) ){ pos = 0; break;}         
-          pos ++ ;
-      }       
-    }    
 
-     if(pos == 3) {winner = valTocheck; break;}     
+  for (let i = 0; i < 3; i++) {
+    var pos = 0;
+    for (let j = 0; j < 3; j++) {
+
+      if (pos == 0) {  //assign value to check from first col
+        var valTocheck = board[i][j];
+        if (valTocheck === null) { break; } //skip to next row if the any col val is not equal to the first col value to check
+        else { pos++; }
+      }
+      else {
+        if ((board[i][j] === null) || (board[i][j] !== valTocheck)) { pos = 0; break; }
+        pos++;
+      }
+    }
+
+    if (pos == 3) { winner = valTocheck; break; }
   }
 
-//check column winner
-for (var i = 0; i < 3; i++){
-  var pos = 0;
-   for (var j = 0; j < 3; j++){
-        
-    if(pos == 0){  //assign value to check from first pos
-       var valTocheck = board[j][i];
-       if(valTocheck === null) {break;} //skip to next col if the any row value is not equal to the first pos value to check
-        else{ pos++;}         
-     }
-     else{
-        if( (board[j][i] === null) || ( board[j][i] !== valTocheck) ){ pos = 0; break;}         
-         pos ++ ;
-     }       
-   }    
+  //check column winner
+  for (let i = 0; i < 3; i++) {
+    var pos = 0;
+    for (let j = 0; j < 3; j++) {
 
-    if(pos == 3) {winner = valTocheck; break;}     
- }
- 
-return winner;  
+      if (pos == 0) {  //assign value to check from first pos
+        var valTocheck = board[j][i];
+        if (valTocheck === null) { break; } //skip to next col if the any row value is not equal to the first pos value to check
+        else { pos++; }
+      }
+      else {
+        if ((board[j][i] === null) || (board[j][i] !== valTocheck)) { pos = 0; break; }
+        pos++;
+      }
+    }
+
+    if (pos == 3) { winner = valTocheck; break; }
+  }
+
+
+//check left diagonal winners
+
+var pos = 0;
+for (let i = 0; i < 3; i++) {
+
+  if (pos == 0) {  //assign value to check from first pos
+    var valTocheck = board[i][i];
+    if (valTocheck === null) { break; } 
+    else { pos++; }
+  }
+  else {
+    if ((board[i][i] === null) || (board[i][i] !== valTocheck)) { break; }
+    pos++;
+  }
+
+  if (pos == 3) { winner = valTocheck; break; }
+}
+
+
+//check right diagonal winners
+var pos = 0;
+for (let i = 0; i < 3; i++) {
+
+  if (pos == 0) {  //assign value to check from first pos
+  
+    var valTocheck = board[i][2-i];
+    if (valTocheck === null) { break; } 
+    else { pos++; }
+  }
+  else {
+   ;
+    if ((board[i][2-i] === null) || (board[i][2-i] !== valTocheck)) { break; }
+    pos++;
+  }
+
+  if (pos == 3) { winner = valTocheck; break; }
+}
+
+  return winner;
 };
 
 module.exports = {

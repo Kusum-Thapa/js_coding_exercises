@@ -1,33 +1,33 @@
 function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
-  
-   return nums.filter(n => {  
-      return n < 1;
-    });
+
+  return nums.filter(n => {
+    return n < 1;
+  });
 }
 
 function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
-  
+
   return names.filter(n => {
-      return n.charAt(0) == char;
+    return n.charAt(0) == char;
   });
 }
 
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
-  
+
   return words.filter(w => {
-     var word = w.split(" ");
-     if (word[0].toUpperCase() == "TO") return word;
+    var word = w.split(" ");
+    if (word[0].toUpperCase() == "TO") return word;
   });
 
 }
 
 function getIntegers(nums) {
   if (!nums) throw new Error("nums is required")
-  
+
   return nums.filter(n => {
     return Number.isInteger(n);
   });
@@ -35,9 +35,9 @@ function getIntegers(nums) {
 
 function getCities(users) {
   if (!users) throw new Error("users is required");
-   var citiesArr = new Array();
-  
-   for(var i =0; i < users.length; i++){
+  var citiesArr = new Array();
+
+  for (let i = 0; i < users.length; i++) {
     citiesArr.push((users[i].data.city.displayName));
   }
 
@@ -46,8 +46,8 @@ function getCities(users) {
 
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
- 
-  return nums.map( n => {
+
+  return nums.map(n => {
     var sqrtVal = Math.sqrt(n);
     return ((sqrtVal % 1 == 0) ? sqrtVal : parseFloat(Number(Math.sqrt(n)).toFixed(2)));
   });
@@ -56,17 +56,17 @@ function getSquareRoots(nums) {
 function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
-  
-  return sentences.filter(s=> {
-   return s.split(" ").toString().toLowerCase().includes(str.toLowerCase());
+
+  return sentences.filter(s => {
+    return s.split(" ").toString().toLowerCase().includes(str.toLowerCase());
   });
 }
 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
-  
+
   return triangles.map(t => {
-    var sortedSidesArr = t.sort(function(a, b){return b-a})
+    var sortedSidesArr = t.sort(function (a, b) { return b - a })
     return sortedSidesArr[0];
   });
 }
