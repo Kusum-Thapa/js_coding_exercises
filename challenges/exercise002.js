@@ -33,7 +33,7 @@ function countSheep(arr) {
 function hasMPostCode(person) {
   if (person === undefined) throw new Error("person is required");
 
-  var personPostCode = person.address.postCode;
+  const personPostCode = person.address.postCode;
 
   return (personPostCode.substring(0, 1) == "M" && !personPostCode.substring(1, 2).match(/[A-Z]/i));
 }

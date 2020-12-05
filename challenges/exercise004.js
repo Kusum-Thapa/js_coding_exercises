@@ -19,7 +19,7 @@ function findVerbs(words) {
   if (!words) throw new Error("words is required");
 
   return words.filter(w => {
-    var word = w.split(" ");
+    const word = w.split(" ");
     if (word[0].toUpperCase() == "TO") return word;
   });
 
@@ -35,7 +35,7 @@ function getIntegers(nums) {
 
 function getCities(users) {
   if (!users) throw new Error("users is required");
-  var citiesArr = new Array();
+  const citiesArr = new Array();
 
   for (let i = 0; i < users.length; i++) {
     citiesArr.push((users[i].data.city.displayName));
@@ -48,7 +48,7 @@ function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
 
   return nums.map(n => {
-    var sqrtVal = Math.sqrt(n);
+    const sqrtVal = Math.sqrt(n);
     return ((sqrtVal % 1 == 0) ? sqrtVal : parseFloat(Number(Math.sqrt(n)).toFixed(2)));
   });
 }
@@ -66,7 +66,7 @@ function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
 
   return triangles.map(t => {
-    var sortedSidesArr = t.sort(function (a, b) { return b - a })
+    const sortedSidesArr = t.sort(function (a, b) { return b - a })
     return sortedSidesArr[0];
   });
 }

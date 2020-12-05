@@ -15,7 +15,7 @@ function addVAT(originalPrice, vatRate) {
   if (originalPrice === undefined) throw new Error("originalPrice is requied");
   if (vatRate === undefined) throw new Error("vatRate is required");
 
-  var vatPrice = originalPrice + (vatRate * 0.01 * originalPrice);
+  const vatPrice = originalPrice + (vatRate * 0.01 * originalPrice);
 
   if (vatPrice % 1 == 0) return parseInt(vatPrice);
   else return parseFloat(Number(vatPrice).toFixed(2));
@@ -25,7 +25,7 @@ function getSalePrice(originalPrice, reduction) {
   if (originalPrice === undefined) throw new Error("originalPrice is required");
   if (reduction === undefined) throw new Error("reduction is required");
 
-  var salePrice = originalPrice - (reduction * 0.01 * originalPrice);
+  const salePrice = originalPrice - (reduction * 0.01 * originalPrice);
 
   if (salePrice % 1 == 0) return parseInt(salePrice);
   else return parseFloat(Number(salePrice).toFixed(2));
@@ -34,9 +34,9 @@ function getSalePrice(originalPrice, reduction) {
 function getMiddleCharacter(str) {
   if (str === undefined) throw new Error("str is required");
 
-  var letterCount = str.length;
-  var midPosition;
-  var noOfLetter;
+  const letterCount = str.length;
+  let midPosition;
+  let noOfLetter;
 
   if (letterCount % 2 == 0) {
     midPosition = letterCount / 2 - 1;
@@ -53,32 +53,20 @@ function getMiddleCharacter(str) {
 function reverseWord(word) {
   if (word === undefined) throw new Error("word is required");
 
-  var splitWords = word.split("");
-
-  var reverseAllWords = splitWords.reverse();
-
-  return reverseAllWords.join("");
+  return word.split("").reverse().join("");
 }
 
 function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
 
-  var reverseWordArray = words.map(reverseWordFunction);
-
-  function reverseWordFunction(value, index, array) {
-
-    var splitWords = value.split("");
-
-    return splitWords.reverse().join("");
-  }
-
-  return (reverseWordArray);
+  return reverseWordArray = words.map((value, index, array) => (
+    value.split("").reverse().join("")));
 }
 
 function countLinuxUsers(users) {
   if (users === undefined) throw new Error("users is required");
 
-  var linuxUsersCount = 0;
+  let linuxUsersCount = 0;
 
   for (let i = 0; i < users.length; i++) {
     if (users[i].type.toUpperCase() == "LINUX") linuxUsersCount++;
@@ -90,13 +78,13 @@ function countLinuxUsers(users) {
 function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required");
 
-  var totalScore = 0;
+  let totalScore = 0;
 
   for (let i = 0; i < scores.length; i++) {
     totalScore += scores[i];
   }
 
-  var meanScore = totalScore / scores.length;
+  const meanScore = totalScore / scores.length;
 
   if (meanScore % 1 == 0) return parseInt(meanScore);
   else return parseFloat(Number(meanScore).toFixed(2));

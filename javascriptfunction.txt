@@ -1,0 +1,7 @@
+//reverseAllwords
+
+ const reverseWordArray = words.map(reverseWordFunction);
+
+function reverseWordFunction(value, index, array) {
+    return value.split("").reverse().join("");
+return (reverseWordArray);
