@@ -202,8 +202,7 @@ for (let i = 0; i < 3; i++) {
     else { pos++; }
   }
   else {
-   ;
-    if ((board[i][2-i] === null) || (board[i][2-i] !== valTocheck)) { break; }
+   if ((board[i][2-i] === null) || (board[i][2-i] !== valTocheck)) { break; }
     pos++;
   }
 

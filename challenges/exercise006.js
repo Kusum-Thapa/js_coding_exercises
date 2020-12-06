@@ -23,6 +23,22 @@ const sumMultiples = arr => {
  */
 const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
+
+  let validDNA = false;
+  let skip = false;
+  str.split("").forEach(s => {
+    if (skip) { return; }
+    else if (s === 'C' || s === 'G' || s === 'A' || s === 'T') {
+      validDNA = true;
+    }
+    else {
+      validDNA = false;
+      skip = true;
+      return;
+    }
+  });
+
+  return validDNA;
 };
 
 /**
