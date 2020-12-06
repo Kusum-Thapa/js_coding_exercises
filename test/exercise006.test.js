@@ -21,21 +21,31 @@ describe("sumMultiples", () => {
 });
 
 describe("isValidDNA", () => {
-  /**  test("returns true if valid DNA string contain characters C, G, T or A only", () => {
+    test("returns true if valid DNA string contain characters C, G, T or A only", () => {
         expect(isValidDNA("CGTA")).toBe(true);
     });
     test("returns true if valid DNA string contain characters C, G, T or A only", () => {
         expect(isValidDNA("GCAT")).toBe(true);
     });
-   test("returns true if valid DNA string contain characters C, G, T or A only", () => {
+    test("returns true if valid DNA string contain characters C, G, T or A only", () => {
         expect(isValidDNA("ATGCAGTCTAGACCT")).toBe(true);
-    });**/
+    });
     test("returns false if valid DNA string contain characters other than C, G, T or A", () => {
         expect(isValidDNA("ATVC")).toBe(false);
     });
     test("returns false if valid DNA string contain characters other than C, G, T or A", () => {
         expect(isValidDNA("QWEWERERTYTUTY")).toBe(false);
     });
+});
+
+describe("CheckComplementaryDNA", () => {
+    test("returns CGTA for GCAT", () => {
+        expect(getComplementaryDNA("CGTA")).toEqual("GCAT");
+    });
+    test("returns true if valid DNA string contain characters C, G, T or A only", () => {
+        expect(getComplementaryDNA("AATTGCC")).toEqual("TTAACGG");
+    });
+
 });
 
 describe("isItPrime", () => {

@@ -48,6 +48,15 @@ const isValidDNA = str => {
  */
 const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
+
+  const DNApairs ={
+    T: 'A',
+    C: 'G',
+    G: 'C',
+    A: 'T'
+  };
+
+ return str.split("").map(s => DNApairs[s]).join("");
 };
 
 /**
