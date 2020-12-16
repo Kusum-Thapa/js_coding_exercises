@@ -59,7 +59,7 @@ function reverseWord(word) {
 function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
 
-  return reverseWordArray = words.map((value, index, array) => (
+  return  words.map((value) => (
     value.split("").reverse().join("")));
 }
 

@@ -1,7 +1,7 @@
 function getSquares(nums) {
   if (nums === undefined) throw new Error("nums is required");
 
-  return squaresArray = nums.map((value, index, array) => (Math.pow(value, 2)));
+  return nums.map(value => (Math.pow(value, 2)));
 }
 
 function camelCaseWords(words) {
@@ -57,7 +57,7 @@ function duplicateNumbers(arr1, arr2) {
     }
   }
 
-  return duplicateNumArray.sort(function (a, b) { return a - b });;
+  return duplicateNumArray.sort((a, b) => a - b);
 }
 
 module.exports = {

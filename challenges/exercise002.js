@@ -21,7 +21,7 @@ function getBusNumbers(people) {
 function countSheep(arr) {
   if (arr === undefined) throw new Error("arr is required");
 
-  var sheepCount = 0;
+  let sheepCount = 0;
 
   for (let i = 0; i <= arr.length; i++) {
     if (arr[i] == "sheep") sheepCount++;
