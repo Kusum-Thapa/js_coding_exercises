@@ -133,33 +133,33 @@ const findWinner = board => {
   if (board === undefined) throw new Error("board is required");
   //loop through array 8 ways
 
-  let winner = null;  
+  let winner = null;
   let valTocheck = null;
   let pos = 0;
 
-  //check row winner
-  for (let i = 0; i < 3; i++) {
-    pos = 0;
-    for (let j = 0; j < 3; j++) {
+  //check row winner 
+for (let i = 0; i <board.length; i++) {
+      pos = 0;
+      for (let j = 0; j < board[i].length; j++) {
 
-      if (pos == 0) {  //assign value to check from first col
-        valTocheck = board[i][j];
-        if (valTocheck === null) { break; } //skip to next row if the any col val is not equal to the first col value to check
-        else { pos++; }
+        if (pos == 0) {  //assign value to check from first col
+          valTocheck = board[i][j];
+          if (valTocheck === null) { break; } //skip to next row if the any col val is not equal to the first col value to check
+          else { pos++; }
+        }
+        else {
+          if ((board[i][j] === null) || (board[i][j] !== valTocheck)) { pos = 0; break; }
+          pos++;
+        }
       }
-      else {
-        if ((board[i][j] === null) || (board[i][j] !== valTocheck)) { pos = 0; break; }
-        pos++;
-      }
-    }
-
-    if (pos == 3) { winner = valTocheck; break; }
-  }
   
+      if (pos == 3) { winner = valTocheck; break; }
+    }
+    
   //check column winner
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < board.length; i++) {
     pos = 0;
-    for (let j = 0; j < 3; j++) {
+    for (let j = 0; j < board[i].length; j++) {
 
       if (pos == 0) {  //assign value to check from first pos
         valTocheck = board[j][i];
@@ -179,7 +179,7 @@ const findWinner = board => {
   //check left diagonal winners
 
   pos = 0;
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < board.length; i++) {
 
     if (pos == 0) {  //assign value to check from first pos
       valTocheck = board[i][i];
@@ -197,7 +197,7 @@ const findWinner = board => {
 
   //check right diagonal winners
   pos = 0;
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < board.length; i++) {
 
     if (pos == 0) {  //assign value to check from first pos
 
