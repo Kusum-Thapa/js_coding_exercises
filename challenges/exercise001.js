@@ -17,8 +17,7 @@ function addVAT(originalPrice, vatRate) {
 
   const vatPrice = originalPrice + (vatRate * 0.01 * originalPrice);
 
-  if (vatPrice % 1 == 0) return parseInt(vatPrice);
-  else return parseFloat(Number(vatPrice).toFixed(2));
+  return (vatPrice % 1 == 0) ? vatPrice : parseFloat(Number(vatPrice).toFixed(2));
 }
 
 function getSalePrice(originalPrice, reduction) {
@@ -27,8 +26,7 @@ function getSalePrice(originalPrice, reduction) {
 
   const salePrice = originalPrice - (reduction * 0.01 * originalPrice);
 
-  if (salePrice % 1 == 0) return parseInt(salePrice);
-  else return parseFloat(Number(salePrice).toFixed(2));
+  return (salePrice % 1 == 0) ? salePrice : parseFloat(Number(salePrice).toFixed(2));
 }
 
 function getMiddleCharacter(str) {
@@ -59,7 +57,7 @@ function reverseWord(word) {
 function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
 
-  return  words.map((value) => (
+  return words.map((value) => (
     value.split("").reverse().join("")));
 }
 
@@ -86,8 +84,7 @@ function getMeanScore(scores) {
 
   const meanScore = totalScore / scores.length;
 
-  if (meanScore % 1 == 0) return parseInt(meanScore);
-  else return parseFloat(Number(meanScore).toFixed(2));
+  return ((meanScore % 1 == 0) ? meanScore : parseFloat(Number(meanScore).toFixed(2)));
 }
 
 function simpleFizzBuzz(n) {
