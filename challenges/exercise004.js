@@ -1,18 +1,14 @@
 function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
 
-  return nums.filter(n => {
-    return n < 1;
-  });
+  return nums.filter(n => n < 1);
 }
 
 function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
 
-  return names.filter(n => {
-    return n.charAt(0) == char;
-  });
+  return names.filter(n => n.charAt(0) == char);
 }
 
 function findVerbs(words) {
@@ -28,15 +24,13 @@ function findVerbs(words) {
 function getIntegers(nums) {
   if (!nums) throw new Error("nums is required")
 
-  return nums.filter(n => {
-    return Number.isInteger(n);
-  });
+  return nums.filter(n => Number.isInteger(n));
 }
 
 function getCities(users) {
   if (!users) throw new Error("users is required");
 
-  return users.map(user =>  user.data.city.displayName );
+  return users.map(user => user.data.city.displayName);
 }
 
 function getSquareRoots(nums) {
@@ -52,18 +46,13 @@ function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
 
-  return sentences.filter(s => {
-    return s.split(" ").toString().toLowerCase().includes(str.toLowerCase());
-  });
+  return sentences.filter(s => s.split(" ").toString().toLowerCase().includes(str.toLowerCase()));
 }
 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
 
-  return triangles.map(t => {
-    const sortedSidesArr = t.sort((a, b) =>  b - a);
-    return sortedSidesArr[0];
-  });
+  return triangles.map(t => (t.sort((a, b) => b - a)).shift());
 }
 
 module.exports = {

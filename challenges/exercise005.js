@@ -4,23 +4,20 @@ const findNextNumber = (nums, n) => {
 
   const numPos = nums.indexOf(n);
 
-  if (numPos == -1 || numPos == nums.length - 1) return null;
-  else return nums[numPos + 1];
+  return (numPos == -1 || numPos == nums.length - 1) ? null : nums[numPos + 1];
 };
 
 const count1sand0s = str => {
   if (str === undefined) throw new Error("str is required");
 
-  let zeroCount = 0;
-  let oneCount = 0;
+  let zeroCount = 0, oneCount = 0;
 
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] == 0) zeroCount++;
-    else if (str[i] == 1) oneCount++;
-  }
+  [...str].forEach(element => {
+    if (element === "0") zeroCount++;
+    else if (element === "1") oneCount++;
+  });
 
-  const result = { 1: oneCount, 0: zeroCount };
-  return result;
+  return { 1: oneCount, 0: zeroCount };
 };
 
 const reverseNumber = n => {
@@ -41,6 +38,7 @@ const sumArrays = arrs => {
 
 const arrShift = arr => {
   if (arr === undefined) throw new Error("arr is required");
+  
   if (arr.length < 2) return arr;
   else {
     [arr[0], arr[arr.length - 1]] = [arr[arr.length - 1], arr[0]];

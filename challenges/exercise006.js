@@ -26,7 +26,7 @@ const isValidDNA = str => {
 
   let validDNA = false;
   let skip = false;
-  str.split("").forEach(s => {
+  [...str].forEach(s => {
     if (skip) { return; }
     else if (s === 'C' || s === 'G' || s === 'A' || s === 'T') {
       validDNA = true;
