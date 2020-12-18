@@ -33,8 +33,7 @@ const isValidDNA = str => {
     }
     else {
       validDNA = false;
-      skip = true;
-      return;
+      skip = true;     
     }
   });
 
@@ -112,21 +111,22 @@ const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
 
-  var totalStaff = staff.length;
-  var staffWorking = 0;
+  const totalStaff = staff.length;
+  let staffWorking = 0;
   if (totalStaff < 3) return false;
   else {
-    for (let i = 0; i < totalStaff; i++) {
-      var workingDays = staff[i].rota;
-      for (let j = 0; j < workingDays.length; j++) {
-        if (workingDays[j].toLowerCase() == day.toLowerCase()) {
+    staff.forEach(staffMember => {
+      let isWorking = false;
+      staffMember.rota.forEach(workday => {
+        if (isWorking) return;
+        if (workday.toLowerCase() == day.toLowerCase()) {
           staffWorking++;
-          break;
+          isWorking = true;
         }
-      }
-    }
-    if (staffWorking >= 3) return true;
-    else return false;
+      });
+    });
+
+    return staffWorking >= 3 ? true : false;
   }
 };
 

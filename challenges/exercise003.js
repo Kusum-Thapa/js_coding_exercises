@@ -36,7 +36,6 @@ function checkIngredients(menu, ingredient) {
     if (containsIngredients) return;
     if (menuItem.ingredients.includes(ingredient))
       containsIngredients = true;
-    return;
   })
 
   return containsIngredients;
