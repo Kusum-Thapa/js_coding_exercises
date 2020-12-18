@@ -22,10 +22,8 @@ function getTotalSubjects(people) {
   if (people === undefined) throw new Error("people is required");
 
   let totalSubject = 0;
-  for (let i = 0; i < people.length; i++) {
-    totalSubject += parseInt(people[i].subjects.length);
-  }
 
+  people.forEach(person => { totalSubject += parseInt(person.subjects.length); });
   return totalSubject;
 }
 
@@ -34,13 +32,12 @@ function checkIngredients(menu, ingredient) {
   if (!ingredient) throw new Error("ingredient is required");
 
   let containsIngredients = false;
-
-  for (let i = 0; i < menu.length; i++) {
-    if (menu[i].ingredients.indexOf(ingredient) > -1) {
+  menu.forEach(menuItem => {
+    if (containsIngredients) return;
+    if (menuItem.ingredients.includes(ingredient))
       containsIngredients = true;
-      break;
-    }
-  }
+    return;
+  })
 
   return containsIngredients;
 }
@@ -49,15 +46,9 @@ function duplicateNumbers(arr1, arr2) {
   if (arr1 === undefined) throw new Error("arr1 is required");
   if (arr2 === undefined) throw new Error("arr2 is required");
 
-  const duplicateNumArray = new Array();
-  for (let i = 0; i < arr1.length; i++) {
-    for (let j = 0; j < arr2.length; j++) {
-      if (arr1[i] == arr2[j] && !duplicateNumArray.includes(arr1[1]) && !duplicateNumArray.includes(arr1[2]))
-        duplicateNumArray.push(arr1[i]);
-    }
-  }
+  const duplicateNumArray = arr1.filter(value => arr2.includes(value)).sort((a, b) => a - b);
 
-  return duplicateNumArray.sort((a, b) => a - b);
+  return [...new Set(duplicateNumArray)];
 }
 
 module.exports = {

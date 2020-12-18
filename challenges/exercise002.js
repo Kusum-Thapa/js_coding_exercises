@@ -21,10 +21,7 @@ function countSheep(arr) {
 
   let sheepCount = 0;
 
-  arr.forEach(element => {
-    if (element == "sheep")
-      sheepCount++;
-  });
+  arr.forEach(element => { if (element == "sheep") sheepCount++; });
 
   return sheepCount;
 }

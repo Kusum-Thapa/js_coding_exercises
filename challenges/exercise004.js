@@ -35,13 +35,8 @@ function getIntegers(nums) {
 
 function getCities(users) {
   if (!users) throw new Error("users is required");
-  const citiesArr = new Array();
 
-  for (let i = 0; i < users.length; i++) {
-    citiesArr.push((users[i].data.city.displayName));
-  }
-
-  return citiesArr;
+  return users.map(user =>  user.data.city.displayName );
 }
 
 function getSquareRoots(nums) {
@@ -49,7 +44,7 @@ function getSquareRoots(nums) {
 
   return nums.map(n => {
     const sqrtVal = Math.sqrt(n);
-    return ((sqrtVal % 1 == 0) ? sqrtVal : parseFloat(Number(Math.sqrt(n)).toFixed(2)));
+    return Number.isInteger(sqrtVal) ? sqrtVal : parseFloat(Number(Math.sqrt(n)).toFixed(2));
   });
 }
 
@@ -66,7 +61,7 @@ function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
 
   return triangles.map(t => {
-    const sortedSidesArr = t.sort(function (a, b) { return b - a })
+    const sortedSidesArr = t.sort((a, b) =>  b - a);
     return sortedSidesArr[0];
   });
 }

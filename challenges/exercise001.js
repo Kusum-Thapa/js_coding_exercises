@@ -17,7 +17,7 @@ function addVAT(originalPrice, vatRate) {
 
   const vatPrice = originalPrice + (vatRate * 0.01 * originalPrice);
 
-  return (vatPrice % 1 == 0) ? vatPrice : parseFloat(Number(vatPrice).toFixed(2));
+  return Number.isInteger(vatPrice) ? vatPrice : parseFloat(Number(vatPrice).toFixed(2));
 }
 
 function getSalePrice(originalPrice, reduction) {
@@ -26,7 +26,7 @@ function getSalePrice(originalPrice, reduction) {
 
   const salePrice = originalPrice - (reduction * 0.01 * originalPrice);
 
-  return (salePrice % 1 == 0) ? salePrice : parseFloat(Number(salePrice).toFixed(2));
+  return Number.isInteger(salePrice) ? salePrice : parseFloat(Number(salePrice).toFixed(2));
 }
 
 function getMiddleCharacter(str) {
@@ -66,10 +66,7 @@ function countLinuxUsers(users) {
 
   let linuxUsersCount = 0;
 
-  for (let i = 0; i < users.length; i++) {
-    if (users[i].type.toUpperCase() == "LINUX") linuxUsersCount++;
-  }
-
+  users.forEach(user => { if (user.type.toUpperCase() == "LINUX") linuxUsersCount++; });
   return linuxUsersCount;
 }
 
@@ -78,13 +75,10 @@ function getMeanScore(scores) {
 
   let totalScore = 0;
 
-  for (let i = 0; i < scores.length; i++) {
-    totalScore += scores[i];
-  }
-
+  scores.forEach(score => { totalScore += score; });
   const meanScore = totalScore / scores.length;
 
-  return ((meanScore % 1 == 0) ? meanScore : parseFloat(Number(meanScore).toFixed(2)));
+  return Number.isInteger(meanScore) ? meanScore : parseFloat(Number(meanScore).toFixed(2));
 }
 
 function simpleFizzBuzz(n) {
